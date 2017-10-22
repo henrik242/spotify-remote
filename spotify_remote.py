@@ -73,7 +73,7 @@ class SpotifyRemote(object):
     def _url(self, path):
         return URL_FORMAT.format(self.port, path)
 
-    def _call(self, path, headers=None, authed=False, raise_error=True,
+    def _call(self, path, headers=dict(Origin="https://open.spotify.com"), authed=False, raise_error=True,
               **params):
         if authed:
             params["oauth"] = self.oauth_token
